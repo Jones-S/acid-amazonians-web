@@ -1,0 +1,13 @@
+query {
+  allDocument(where: {_type: { in: ["page", "game"]}}) {
+    _id
+    _type
+    __typename
+    ...on Page {
+      title
+    }
+    ...on Game {
+      title
+    }
+  }
+}

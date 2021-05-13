@@ -13,6 +13,11 @@ So when setting up a few things had to be taken care of:
 - All the craft components had to be removed.
 - In `index.vue` the variables for the GraphQL query had to be deleted. (No `site` and `section` variables).
 - Delete all nuxt image stuff in `nuxt.config.js`. (It ain't working anyway at the time of writing...)
+- Change all GraphQl Queries in `index.vue` and `_.vue`.
+- Remove error message if no i18n in `index.vue` and `_.vue`.
+- Remove NuxtLink with `localePath`.
+- remove i18n stuff in `default.vue`.
+- Delete i18n and fetching stuff in `TheFooter.vue`
 
 ## Prerequisites
 
@@ -134,3 +139,4 @@ $s-debug-breakpoints: true;
 ## VS Code
 
 We recommend to use [VS Code](https://code.visualstudio.com/). [Recommended extensions](./.vscode/extensions.json) can be installed (prompt by VS Code) when opening the project for the first time. [Project settings](./.vscode/settings.json) ensures that linting with [`eslint`](./.eslintrc.js) and [`stylelint`](./.stylelintrc.json) works correctly.
+.
