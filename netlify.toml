@@ -1,0 +1,8 @@
+[build]
+  command = "yarn netlify"
+  publish = "dist"
+
+# Storybook branch deploy
+[context.storybook]
+  command = "yarn storybook:build"
+  publish = "storybook-static"

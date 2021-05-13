@@ -1,0 +1,86 @@
+/*
+ * Basic resets on top of [normalize-scss](../vendors/_normalize.scss).
+ */
+
+* {
+  /* Reset margins and padding */
+  margin: 0;
+  padding: 0;
+}
+
+address,
+area,
+article,
+aside,
+audio,
+blockquote,
+button,
+datalist,
+details,
+dl,
+fieldset,
+figure,
+form,
+input,
+iframe,
+img,
+meter,
+nav,
+ol,
+optgroup,
+option,
+output,
+p,
+pre,
+progress,
+ruby,
+section,
+select,
+table,
+textarea,
+ul,
+video {
+  /* Margins for most elements */
+  margin-bottom: 1rem;
+}
+
+select[multiple] {
+  option {
+    margin-bottom: 0;
+  }
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  /* Remove trailing margins from nested lists */
+  margin-bottom: 0;
+}
+
+/*
+ * Remove spaces between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+input {
+  line-height: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+textarea {
+  /* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
+  max-width: 100%;
+}

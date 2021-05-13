@@ -1,0 +1,8 @@
+#import "./fragments/pageBuilder.gql"
+#import "./fragments/seomatic.gql"
+
+query HomePage($id: ID!) {
+  Page(id: $id) {
+    _id
+  }
+}

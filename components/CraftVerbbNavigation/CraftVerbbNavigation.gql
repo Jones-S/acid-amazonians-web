@@ -1,0 +1,23 @@
+fragment verbbNavigationNodeFields on NodeInterface {
+  id
+  title
+  url
+  level
+  newWindow
+  type
+}
+
+query verbbNavigation($navHandle: String, $level: Int = 1, $site: [String]) {
+  menu: nodes(navHandle: $navHandle, level: $level, site: $site) {
+    ...verbbNavigationNodeFields
+    children {
+      ...verbbNavigationNodeFields
+      children {
+        ...verbbNavigationNodeFields
+        children {
+          ...verbbNavigationNodeFields
+        }
+      }
+    }
+  }
+}

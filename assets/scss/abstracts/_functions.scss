@@ -1,0 +1,23 @@
+/*
+ * Functions
+ */
+
+/// Strip units from a value
+@function strip-units($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/// Calculate rems from a px value
+@function px2rem($px, $base-font-value: 10px) {
+  @if not unitless($px) {
+    $px: strip-units($px);
+  }
+  @if not unitless($base-font-value) {
+    $base-font-value: strip-units($base-font-value);
+  }
+  @if ($px != 0) {
+    @return ($px / $base-font-value) * 1rem;
+  } @else {
+    @return 0;
+  }
+}

@@ -1,0 +1,49 @@
+/*
+ * Typography
+ */
+
+@mixin font-style-base {
+  font-family: $s-font-family-base;
+  font-size: $s-fz-16;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: $s-line-height-std;
+}
+
+@mixin font-style-small {
+  font-size: $s-fz-14;
+}
+
+@mixin font-style-paragraph {
+  @include font-style-base;
+
+  font-family: $s-font-family-serif;
+  @include mq($from: medium) {
+    font-size: $s-fz-18;
+  }
+}
+
+@mixin font-style-heading-1 {
+  @include font-style-base;
+
+  font-size: $s-fz-30;
+  font-weight: $s-font-weight-bold;
+
+  @include mq($from: medium) {
+    font-size: $s-fz-48;
+  }
+}
+
+@mixin font-style-heading-2 {
+  @include font-style-base;
+
+  font-size: $s-fz-22;
+  font-weight: $s-font-weight-bold;
+}
+
+@mixin font-style-heading-3 {
+  @include font-style-base;
+
+  font-size: $s-fz-18;
+  font-weight: $s-font-weight-bold;
+}

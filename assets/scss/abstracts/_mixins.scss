@@ -1,0 +1,187 @@
+/*
+ * Mixins
+ */
+
+/*
+ * Hide visually
+ * See http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ * for discussion of different solutions
+ */
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin visually-hidden-reset() {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+@mixin visually-hidden-focusable() {
+  @include visually-hidden;
+
+  &:focus,
+  &:active {
+    @include visually-hidden-reset;
+  }
+}
+
+/*
+ * Lists with layout purpose
+ */
+@mixin reset-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Reset button
+ */
+@mixin reset-button() {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/*
+ * Reset Link
+ */
+@mixin reset-link() {
+  color: $color-dark;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+/*
+ * WordWrap
+ */
+@mixin word-wrap($break: true) {
+  hyphens: auto;
+
+  @if $break==true {
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+}
+
+/*
+ * Set-Gutter
+ * @Params: small | medium | large | full-width
+ */
+@mixin set-gutter($size: 'small') {
+  @if ($size == 'small') {
+    padding: 0 $s-size-gutter-small;
+    width: 100%;
+
+    @include mq($from: medium) {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: px2rem($s-size-content-max-width-small) + 2 *
+        ($s-size-gutter-medium);
+      padding: 0 $s-size-gutter-medium;
+    }
+  } @else if ($size == 'medium') {
+    padding: 0 $s-size-gutter-small;
+    width: 100%;
+
+    @include mq($from: medium) {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: px2rem($s-size-content-max-width-medium) + 2 *
+        ($s-size-gutter-medium);
+      padding: 0 $s-size-gutter-medium;
+    }
+  } @else if ($size == 'large') {
+    padding: 0 $s-size-gutter-small;
+    width: 100%;
+
+    @include mq($from: medium) {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: px2rem($s-size-content-max-width-large) + 2 *
+        ($s-size-gutter-medium);
+      padding: 0 $s-size-gutter-medium;
+    }
+  } @else if ($size == 'full-width') {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+
+    @include mq($from: medium) {
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
+    }
+  }
+}
+
+/*
+ * Event wrapper
+ */
+
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/*
+ * Context Based Selector
+ */
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/*
+ * Keyboard Focus with what-input
+ */
+
+// Relies upon https://github.com/ten1seven/what-input
+@mixin keyboard-focus($color: $color-primary, $offset: 1rem) {
+  [data-whatintent='keyboard'] &:focus {
+    outline: px2rem(2) solid $color;
+    outline-offset: $offset;
+  }
+
+  [data-whatintent='mouse'] &:focus {
+    outline: none;
+  }
+}
