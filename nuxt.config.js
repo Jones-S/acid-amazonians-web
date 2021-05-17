@@ -101,6 +101,13 @@ export default {
         },
       },
     },
+
+    extend(config) {
+      config.module.rules.push({
+        test: /\.(vert|frag)$/,
+        loader: 'raw-loader',
+      })
+    },
   },
 
   // Generate Options
