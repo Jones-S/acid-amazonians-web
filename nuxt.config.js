@@ -3,7 +3,6 @@ import fetchRoutesToBeGenerated from './graphql/scripts/fetchRoutesToBeGenerated
 import createI18nConfig from './i18n/i18nConfig'
 import colorConfig from './configs/colors.json'
 import storybookConfig from './configs/storybookConfig'
-import createNuxtImageConfig from './configs/nuxtImageConfig'
 
 /**
  * Set the default locale (used by i18n and pwa/manifest module)

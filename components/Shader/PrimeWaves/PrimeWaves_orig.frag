@@ -1,18 +1,71 @@
-uniform float time;
-uniform vec2 resolution;
-
-vec2 center = vec2(-2.0, -1.0);
-float rate = -1.0;
-float zoom = 5.0;
-float depth = 0.6;
-float rxy = 11.0;
-float rxz = 13.0;
+/*{
+  "CREDIT": "by mojovideotech",
+  "CATEGORIES" : [
+    "Generator",
+    "waves"
+  ],
+  "DESCRIPTION" : "",
+  "INPUTS" : [
+    {
+      "NAME" : "center",
+      "TYPE" : "point2D",
+       "DEFAULT": [
+		-2,
+		-1
+	  ],
+      "MAX" : [
+        10,
+        10
+      ],
+      "MIN" : [
+        -10,
+        -10
+      ]
+    },
+    {
+		"NAME": "rate",
+		"TYPE": "float",
+		"DEFAULT": -1,
+		"MIN": -3,
+		"MAX": 3
+	},
+	{
+		"NAME": "zoom",
+		"TYPE": "float",
+		"DEFAULT": 5,
+		"MIN": -10,
+		"MAX": 10
+	},
+	{
+		"NAME": "depth",
+		"TYPE": "float",
+		"DEFAULT": 0.6,
+		"MIN": 0.0,
+		"MAX": 1.0
+	},
+	{
+		"NAME": "rxy",
+		"TYPE": "float",
+		"DEFAULT": 11,
+		"MIN": 1,
+		"MAX": 17
+	},
+	{
+		"NAME": "rxz",
+		"TYPE": "float",
+		"DEFAULT": 13,
+		"MIN": 1,
+		"MAX": 17
+	}
+  ]
+}
+*/
 
 vec2 distort(vec2 p)
 {
     float theta  = atan(p.y, p.x);
     float radius = length(p);
-    radius = pow(radius, 1.0 + depth);
+    radius = pow(radius, 1.0+depth);
     p.x = radius * cos(theta);
     p.y = radius * sin(theta);
     return 0.5 * (p + 1.0);
@@ -38,6 +91,13 @@ float noise(const vec3 x, float y, float z)
     float r2=mix(mix(hash(n+z),hash(n+z+1.0),f.x),mix(hash(n+y+z),hash(n+y+z+1.0),f.x),f.y);
 	return mix(r1,r2,f.z);
 }
+
+vec2 center = vec2(-2.,-1.);
+float rate = -1.;
+float zoom = 5.;
+float depth = 0.6;
+float rxy = 11.;
+float rxz = 13.;
 
 void main( void ) {
 
@@ -74,8 +134,8 @@ void main( void ) {
 	else if (rxz <= 15.)	{	RZ += 61.; 	}
 	else if (rxz <= 16.)	{	RZ += 67.; 	}
 
-	vec2 pos = ( gl_FragCoord.xy / resolution.xy * zoom )+center;
-	float col = noise(pos.xyx + (time * rate),RY,RZ);
+	vec2 pos = ( gl_FragCoord.xy / RENDERSIZE.xy * zoom )+center;
+	float col = noise(pos.xyx + (TIME*rate),RY,RZ);
 	vec4 c = pattern(distort(pos+col));
   c.xy = distort(c.xy);
 	gl_FragColor = vec4(c.x - col, sin(c.y) - col, cos(c.z), 1.0);
