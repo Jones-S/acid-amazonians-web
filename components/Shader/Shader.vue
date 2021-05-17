@@ -26,15 +26,17 @@ export default {
     console.log('vertexShader: ', vertexShader)
     console.log('fragmentShader: ', fragmentShader)
     this.initShaders()
+    this.initEventListeners()
     this.animate()
   },
   methods: {
+    initEventListeners() {
+      window.addEventListener('resize', this.resize, true)
+    },
     initShaders() {
       this.scene = new THREE.Scene()
       this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
 
-      // uniforms.resolution.value.x = window.innerWidth;
-      // uniforms.resolution.value.y = window.innerHeight;
       this.uniforms = {
         time: { value: 1.0 },
         resolution: {
@@ -69,6 +71,11 @@ export default {
       const elapsedSeconds = elapsedMilliseconds / 1000
       this.uniforms.time.value = elapsedSeconds
       this.renderer.render(this.scene, this.camera)
+    },
+    resize() {
+      this.uniforms.resolution.x = window.innerWidth
+      this.uniforms.resolution.y = window.innerHeight
+      this.renderer.setSize(window.innerWidth, window.innerHeight)
     },
   },
 }
