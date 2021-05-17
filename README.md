@@ -1,9 +1,9 @@
 # Amazonians
 
 ## Ideas/Resources
+
 SVG Clip path:
 https://tympanus.net/Development/OrganicShapeAnimations/
-
 
 # lucid-nuxt-2021
 
@@ -18,6 +18,7 @@ So when setting up a few things had to be taken care of:
 - Remove NuxtLink with `localePath`.
 - remove i18n stuff in `default.vue`.
 - Delete i18n and fetching stuff in `TheFooter.vue`
+- Change the default query in `fetchRoutesToBeGenerated.js` for fetching the routes.
 
 ## Prerequisites
 

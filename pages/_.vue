@@ -10,20 +10,20 @@
  * https://nuxtjs.org/docs/2.x/features/file-system-routing#unknown-dynamic-nested-routes
  * ! Handling 404 pages is up to the logic of the _.vue page.
  */
+import { withoutLeadingSlash } from '@nuxt/ufo'
 import slugPageQuery from '~/graphql/queries/slugPage.gql'
 
 export default {
   name: 'SlugPage',
   async asyncData({ app, route, $graphql, error }) {
     const variables = {
-      id: 'show',
+      id: withoutLeadingSlash(route.path),
     }
-    const { page } = await $graphql.default.request(slugPageQuery, variables)
-    console.log('page: ', page)
-    if (page == null) {
+    const { Page } = await $graphql.default.request(slugPageQuery, variables)
+    if (Page == null) {
       error({ statusCode: 404, message: 'Page not found.' })
     }
-    return { page }
+    return { page: Page }
   },
   head() {
     // return this.$craftSEOmatic(this.page?.seomatic)

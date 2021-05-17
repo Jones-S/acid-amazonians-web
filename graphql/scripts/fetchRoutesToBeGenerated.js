@@ -10,22 +10,31 @@ export default async function (apiUrl) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `#graphql
-          {
-            entries(site: "*") {
-              url
+          query {
+            allDocument(where: {_type: { in: ["page", "game"]}}) {
+              _id
+              _type
+              __typename
+              ...on Page {
+                title
+              }
+              ...on Game {
+                title
+              }
             }
           }
         `,
       }),
     })
     const jsonResponse = await response.json()
-    if (jsonResponse.data == null || !jsonResponse.data.entries.length) {
+    console.log('jsonResponse: ', jsonResponse)
+    if (jsonResponse.data == null || !jsonResponse.data.allDocument.length) {
       throw new Error(
         "❌ Couldn't get routes from CMS. Is API_URL defined in .env and your GraphQL endpoint working?"
       )
     }
-    const fetchedRoutes = jsonResponse.data.entries.map(
-      (item) => parseURL(item.url).pathname
+    const fetchedRoutes = jsonResponse.data.allDocument.map(
+      (item) => parseURL(item._id).pathname
     )
     consola.success(
       '✅ Successfully fetched routes to generate: ',
