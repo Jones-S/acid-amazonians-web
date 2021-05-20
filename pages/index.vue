@@ -1,7 +1,9 @@
 <template>
   <main :class="['Page', 'Page--home', $options.name]">
     <Shader />
-    <h1 class="Page__title">Acid</h1>
+    <DrippyHeading class="Page__title"
+      ><h1>ACID<br />AMAZONIANS</h1></DrippyHeading
+    >
   </main>
 </template>
 

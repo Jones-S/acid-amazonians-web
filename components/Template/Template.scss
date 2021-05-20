@@ -1,0 +1,5 @@
+$c: 'Template';
+
+.#{$c} {
+  @include font-style-paragraph;
+}

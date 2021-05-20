@@ -47,3 +47,7 @@
   font-size: $s-fz-18;
   font-weight: $s-font-weight-bold;
 }
+
+@mixin font-style-drippy {
+  font-family: $s-font-family-drippy;
+}

@@ -1,0 +1,22 @@
+$c: 'DrippyHeading';
+
+.#{$c} {
+  animation-direction: alternate;
+  animation-duration: 13s;
+  animation-iteration-count: infinite;
+  animation-name: drip;
+  color: $color-light;
+
+  h1 {
+    @include font-style-drippy;
+  }
+}
+
+@keyframes drip {
+  from {
+    font-variation-settings: 'wdth' 100;
+  }
+  to {
+    font-variation-settings: 'wdth' 150;
+  }
+}

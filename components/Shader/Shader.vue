@@ -1,5 +1,8 @@
 <template>
-  <div ref="canvas" :class="[$options.name]"></div>
+  <div :class="[$options.name]">
+    <button @click="toggleAnimation">Animate</button>
+    <div ref="canvas" class="Shader__canvas"></div>
+  </div>
 </template>
 
 <script>
@@ -19,6 +22,7 @@ export default {
       material: null,
       geometry: null,
       startTime: null,
+      animationStopped: true,
     }
   },
   mounted() {
@@ -63,8 +67,10 @@ export default {
       this.renderer.render(this.scene, this.camera)
     },
     animate() {
-      requestAnimationFrame(this.animate)
-      this.render()
+      if (!this.animationStopped) {
+        requestAnimationFrame(this.animate)
+        this.render()
+      }
     },
     render() {
       const elapsedMilliseconds = Date.now() - this.startTime
@@ -76,6 +82,12 @@ export default {
       this.uniforms.resolution.x = window.innerWidth
       this.uniforms.resolution.y = window.innerHeight
       this.renderer.setSize(window.innerWidth, window.innerHeight)
+    },
+    toggleAnimation() {
+      this.animationStopped = !this.animationStopped
+      if (!this.animationStopped) {
+        this.animate()
+      }
     },
   },
 }
