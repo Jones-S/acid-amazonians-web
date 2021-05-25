@@ -25,6 +25,7 @@
     "@nuxt/ufo": "^0.5.4",
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "animejs": "^3.2.1",
     "core-js": "^3.6.5",
     "graphql-tag": "^2.11.0",
     "imports-loader": "^2.0.0",
@@ -35,6 +36,7 @@
     "sass-mq": "^5.0.1",
     "three": "^0.128.0",
     "vue-link": "^1.6.1",
+    "vue-uniq-ids": "^1.0.0",
     "what-input": "^5.2.10"
   },
   "devDependencies": {

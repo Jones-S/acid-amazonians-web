@@ -1,5 +1,5 @@
 $c: 'Template';
 
 .#{$c} {
-  @include font-style-paragraph;
+  margin-bottom: $s-size-spacer-20;
 }

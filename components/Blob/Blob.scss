@@ -1,0 +1,11 @@
+$c: 'Blob';
+
+.#{$c} {
+  color: #fff;
+
+  &__svg {
+    cursor: pointer;
+    height: 40rem;
+    width: 40rem;
+  }
+}

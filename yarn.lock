@@ -3597,6 +3597,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animejs@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.2.1.tgz#de9fe2e792f44a777a7fdf6ae160e26604b0cdda"
+  integrity sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==
+
 ansi-align@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.0.tgz#b536b371cf687caaef236c18d3e21fe3797467cb"
@@ -12032,6 +12037,11 @@ q@^1.1.2, q@^1.5.1:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
+qinu@^1.1.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/qinu/-/qinu-1.2.0.tgz#1d25cba3a1342fe1b55db0ab0819493035f871f7"
+  integrity sha512-tcTCpRzghKo6jfjkQ8tEWwD8qtyOR4cqoVo0/6waSfYT3NM/lTytRCcYNbISFrK1tu7ttowyhY8XpEjleZWybA==
+
 qs@6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -14896,6 +14906,13 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue-uniq-ids@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-uniq-ids/-/vue-uniq-ids-1.0.0.tgz#294c0ecdfaa3eae75d8c850ca0005137dcf34ba0"
+  integrity sha1-KUwOzfqj6uddjIUMoABRN9zzS6A=
+  dependencies:
+    qinu "^1.1.2"
 
 vue@^2.5.22, vue@^2.6.12:
   version "2.6.12"
